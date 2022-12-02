@@ -1,6 +1,6 @@
-import { Box, Button, Divider, IconButton, Typography } from "@mui/material";
+import { Box, Button,  Divider, IconButton, Typography } from "@mui/material";
 import {useSelector, useDispatch } from "react-redux";
-import CloseIcon from "@mui/icons-material/CLose";
+import CloseIcon from "@mui/icons-material/Close";
 import AddIcon  from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
 import styled from "@emotion/styled";
@@ -107,9 +107,10 @@ const CartMenu = () => {
                                             <AddIcon />
                                         </IconButton>
                                        </Box>
-                                   </FlexBox>
-                                   {/* price */}
+                                       {/* price */}
                                    <Typography fontWeight="bold">{item.attributes.price}</Typography>
+                                   </FlexBox>
+                                   
                                 </Box>
                             </FlexBox>
                                  <Divider />
@@ -122,7 +123,7 @@ const CartMenu = () => {
                     <Typography fontWeight="bold">SUBTOTAL</Typography>
                     <Typography fontWeight="bold">${totalPrice}</Typography>
                   </FlexBox>
-                  <button
+                  <Button
                   sx={{
                     backgroundColor: shades.primary[400],
                     color: "white",
@@ -133,10 +134,11 @@ const CartMenu = () => {
                   }}
                   onClick={() =>{
                     navigate("/checkout")
+                    dispatch(setIsCartOpen({}))
                   }}
                   >
                     CHECKOUT
-                  </button>
+                  </Button>
                 </Box>
             </Box>
 
